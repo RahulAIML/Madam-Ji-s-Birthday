@@ -1,0 +1,345 @@
+/*
+  A Wish For My Love — Romantic Minimalist Styles
+  Palette: Soft Pink (#FFB6C1), Deep Purple (#4B0082), White (#FFFFFF)
+  Fonts: Poppins / Montserrat for body; Great Vibes for headline
+*/
+
+:root {
+  --pink: #FFB6C1;
+  --purple: #4B0082;
+  --white: #FFFFFF;
+  --glass: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --text-dim: rgba(255, 255, 255, 0.85);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+  font-family: 'Poppins', 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { display: block; max-width: 100%; height: auto; border-radius: 14px; }
+
+/* Ensure gallery images fill their cards consistently */
+.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4; /* consistent portrait ratio for a neat masonry-like look */
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.section {
+  position: relative;
+  padding: 72px 20px;
+  z-index: 1; /* keep content above floating effects */
+}
+
+.container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.container.narrow { width: min(900px, 100%); }
+
+.section-title {
+  margin: 0 0 24px 0;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+.hero-inner { padding: 0 16px; }
+
+.hero-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1.05;
+  margin: 0 0 10px 0;
+  text-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
+
+.hero-subtitle {
+  margin: 0 0 28px 0;
+  font-size: clamp(16px, 2.4vw, 22px);
+  color: var(--text-dim);
+}
+
+/* Buttons */
+.btn {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary {
+  background: var(--white);
+  color: var(--purple);
+  box-shadow: var(--shadow);
+}
+
+.btn.secondary {
+  background: rgba(255,255,255,0.18);
+  color: var(--white);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+.btn:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.btn:active { transform: translateY(0); }
+
+/* Memories */
+.memories .section-title { font-size: clamp(28px, 4vw, 38px); }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius);
+  padding: 10px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  grid-column: span 4; /* 3 cards per row on desktop */
+}
+
+@media (max-width: 900px) {
+  .card { grid-column: span 6; } /* 2 per row */
+}
+
+@media (max-width: 600px) {
+  .gallery { gap: 12px; }
+  .card { grid-column: span 12; } /* 1 per row */
+}
+
+/* Message */
+.message .section-title { font-size: clamp(28px, 4vw, 36px); }
+
+.love-letter {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: clamp(20px, 4vw, 40px);
+  border-radius: var(--radius);
+  line-height: 1.9;
+  font-size: clamp(15px, 2.4vw, 18px);
+  box-shadow: var(--shadow);
+}
+
+.love-letter p { margin: 0 0 16px 0; }
+.love-letter p strong { color: #ffe4ec; }
+
+/* Unlock */
+.unlock .section-title { font-size: clamp(28px, 4vw, 36px); }
+.hint { text-align: center; color: var(--text-dim); margin-bottom: 16px; }
+
+.unlock-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+#secret {
+  width: 120px;
+  padding: 12px 14px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: 4px;
+  outline: none;
+}
+
+.hidden-content {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 400ms ease, transform 400ms ease;
+  text-align: center;
+}
+
+.hidden-content.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.secret-img { max-width: 520px; width: 100%; margin: 0 auto 12px; box-shadow: var(--shadow); }
+.secret-text { color: var(--text); font-size: 18px; }
+
+/* Enhanced secret reveal */
+.secret-wrapper {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 14px;
+}
+
+.before-card, .after-card {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.before-card { opacity: 0; transform: scale(0.98); }
+.before-card.show { opacity: 1; transform: scale(1); }
+.before-card.hide { opacity: 0; transform: scale(1.03); }
+
+.after-card { opacity: 0; transform: translateY(8px); }
+.after-card.show { opacity: 1; transform: translateY(0); position: relative; }
+
+.blur { filter: blur(6px) brightness(0.95); }
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.45);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+
+.badge.success { background: rgba(76, 175, 80, 0.3); border-color: rgba(255,255,255,0.6); }
+
+/* Floating Heart Button */
+.heart-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  color: var(--white);
+  background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.35);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 5; /* keep above sections and effects */
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.heart-fab::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.35), rgba(255,255,255,0) 60%);
+  opacity: 0.7;
+  transform: scale(0.9);
+  animation: pulse 1.8s ease-out infinite;
+  pointer-events: none;
+}
+
+.heart-fab:hover { transform: translateY(-2px) scale(1.02); filter: brightness(1.05); }
+.heart-fab:active { transform: translateY(0) scale(0.98); }
+.heart-fab:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.75; }
+  70% { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+#hearts-container {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0; /* effects layer behind content */
+}
+
+.heart {
+  position: absolute;
+  font-size: 14px;
+  color: #ffe3ec;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  animation: floatUp 2.6s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(0.9); opacity: 1; }
+  70% { opacity: 0.9; }
+  100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  font-size: 28px; /* 🎈 size */
+  filter: drop-shadow(0 6px 20px rgba(0,0,0,0.25));
+  animation: balloonRise linear forwards;
+}
+
+@keyframes balloonRise {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateY(-50vh) translateX(var(--sway, 0px)) rotate(-2deg); }
+  100% { transform: translateY(-120vh) translateX(calc(var(--sway, 0px) * 2)) rotate(2deg); opacity: 0; }
+}
+
+/* Petals / Roses falling */
+.petal, .rose {
+  position: absolute;
+  font-size: 20px;
+  animation: petalFall linear forwards;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.2));
+}
+
+@keyframes petalFall {
+  0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  50% { transform: translateY(50vh) translateX(var(--drift, 0px)) rotate(30deg); }
+  100% { transform: translateY(120vh) translateX(calc(var(--drift, 0px) * 2)) rotate(-30deg); opacity: 0; }
+}
+
+/* Utilities */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
