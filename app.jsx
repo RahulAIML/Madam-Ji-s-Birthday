@@ -169,10 +169,10 @@ function Message() {
           <p><strong>💖 Two Years of Mou and Me 💖</strong></p>
           <p>My dearest Mou,</p>
           <p>
-            It's amazing to look back and realize that two years ago, on January 20th, 2022, our story began with a simple chat on Facebook. Who knew that random message would lead to this incredible journey?
+            It's amazing to look back and realize that nearly two years ago, on January 20th, 2024, our story began with a simple chat on Facebook. Who knew that random message would lead to this incredible journey?
           </p>
           <p>
-            But the day our lives truly connected was January 23rd, 2022, on our very first face-to-face date. That's when we officially started this beautiful adventure, and every day since has been a gift.
+            But the day our lives truly connected was January 23rd, 2024, on our very first face-to-face date. That's when we officially started this beautiful adventure, and every day since has been a gift.
           </p>
           <p><strong>My Rock, My Strength</strong><br/>
             I'll never forget that period when I was empty-pocketed. You didn't just stand by me—you actively helped me, supported me, and saw my potential when I couldn't see it myself. Your belief in me was the greatest encouragement I could have asked for.
